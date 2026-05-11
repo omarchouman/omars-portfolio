@@ -234,7 +234,7 @@ export function BlogAdmin({ initialPosts }: Props) {
           <motion.li
             key={post.slug}
             layout
-            className="glass-card flex items-center justify-between gap-4 rounded-2xl p-4"
+            className="glass-card flex flex-col gap-4 rounded-2xl p-4 sm:flex-row sm:items-center sm:justify-between"
           >
             <div className="min-w-0 flex-1">
               <h3 className="font-semibold text-[var(--foreground)]">{post.title}</h3>
@@ -242,7 +242,7 @@ export function BlogAdmin({ initialPosts }: Props) {
                 /blog/{post.slug}
               </p>
             </div>
-            <div className="flex shrink-0 gap-2">
+            <div className="flex flex-wrap gap-2 sm:shrink-0">
               <a
                 href={`/blog/${post.slug}`}
                 target="_blank"

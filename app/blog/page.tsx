@@ -15,8 +15,8 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <div className="pt-24">
-      <section className="mx-auto max-w-4xl px-6 py-20">
+    <div className="pt-20 sm:pt-24">
+      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
         <h1 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl">
           Writing & Thinking
         </h1>

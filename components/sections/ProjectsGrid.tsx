@@ -6,8 +6,8 @@ import Link from "next/link";
 
 export function ProjectsGrid() {
   return (
-    <div className="pt-24">
-      <section className="mx-auto max-w-6xl px-6 py-16">
+    <div className="pt-20 sm:pt-24">
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -24,23 +24,24 @@ export function ProjectsGrid() {
         >
           Selected work across backend systems, full-stack platforms, and AI integration.
         </motion.p>
-        <div className="mt-16 grid gap-8 sm:grid-cols-2">
+        <div className="mt-10 grid gap-6 sm:mt-16 sm:grid-cols-2 sm:gap-8">
           {projects.map((project, i) => (
             <motion.article
               key={project.id}
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }}
+              className="h-full"
             >
-              <Link href={project.href} className="group block">
-                <div className="glass-card overflow-hidden p-6 transition-all duration-300 hover:shadow-lg group-hover:border-[var(--blue-soft)]/30">
+              <Link href={project.href} className="group block h-full" target="_blank" rel="noopener noreferrer">
+                <div className="glass-card flex h-full flex-col overflow-hidden p-6 transition-all duration-300 hover:shadow-lg group-hover:border-[var(--blue-soft)]/30">
                   <h3 className="text-xl font-semibold text-[var(--foreground)] transition-colors group-hover:text-[var(--blue-soft)]">
                     {project.title}
                   </h3>
                   <p className="mt-3 text-[var(--muted-foreground)] leading-relaxed">
                     {project.description}
                   </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
+                  <div className="mt-4 flex flex-grow flex-wrap content-start gap-2">
                     {project.stack.map((tech) => (
                       <span
                         key={tech}
@@ -50,7 +51,7 @@ export function ProjectsGrid() {
                       </span>
                     ))}
                   </div>
-                  <span className="mt-4 inline-flex items-center text-sm font-medium text-[var(--blue-soft)] opacity-0 transition-opacity group-hover:opacity-100">
+                  <span className="mt-4 inline-flex items-center text-sm font-medium text-[var(--blue-soft)]">
                     View project →
                   </span>
                 </div>

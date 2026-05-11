@@ -36,7 +36,7 @@ export default function BlogAdminLoginPage() {
   }
 
   return (
-    <div className="flex min-h-[100vh] flex-col items-center justify-center px-6 pt-24">
+    <div className="flex min-h-[100vh] flex-col items-center justify-center px-4 pt-20 sm:px-6 sm:pt-24">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -4,15 +4,14 @@ import { motion } from "framer-motion";
 import { ContactForm } from "@/components/ContactForm";
 
 const contactInfo = [
-  { label: "Email", value: "omar@justechlb.com", href: "mailto:omar.chouman0@gmail.com" },
+  { label: "Email", value: "omar.chouman0@gmail.com", href: "mailto:omar.chouman0@gmail.com" },
   { label: "Location", value: "Beirut, Lebanon", href: null },
-  { label: "Company", value: "JUSTECH", href: null },
 ];
 
 export function ContactContent() {
   return (
-    <div className="pt-24">
-      <section className="mx-auto max-w-4xl px-6 py-20">
+    <div className="pt-20 sm:pt-24">
+      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,7 +38,7 @@ export function ContactContent() {
           I work with startups, enterprises, and founders who care about long-term quality.
         </motion.p>
 
-        <div className="mt-16 grid gap-16 md:grid-cols-2">
+        <div className="mt-12 grid gap-10 sm:mt-16 sm:gap-16 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

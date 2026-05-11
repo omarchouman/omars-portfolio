@@ -23,8 +23,8 @@ const expertise = [
 
 export function CoreExpertise() {
   return (
-    <section className="bg-[var(--gradient-section)] py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <section className="bg-[var(--gradient-section)] py-12 sm:py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ export function CoreExpertise() {
         >
           Core Expertise
         </motion.h2>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {expertise.map((item, i) => (
             <motion.article
               key={item.title}

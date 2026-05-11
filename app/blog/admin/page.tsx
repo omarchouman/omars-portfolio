@@ -16,9 +16,9 @@ export default function BlogAdminPage() {
   const posts = getAllPosts();
 
   return (
-    <div className="pt-24">
-      <div className="mx-auto max-w-4xl px-6 py-20">
-        <div className="flex items-center justify-between">
+    <div className="pt-20 sm:pt-24">
+      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <Link
               href="/blog"

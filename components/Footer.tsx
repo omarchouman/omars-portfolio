@@ -14,17 +14,17 @@ const links = [
 export function Footer() {
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--background)]">
-      <div className="mx-auto max-w-6xl px-6 py-12">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="flex flex-col items-center justify-between gap-6 sm:flex-row"
+          className="flex flex-col items-center justify-between gap-6 text-center sm:flex-row sm:text-left"
         >
-          <p className="text-sm text-[var(--muted-foreground)]">
+          <p className="order-2 text-sm text-[var(--muted-foreground)] sm:order-1">
             © {new Date().getFullYear()} Omar Chouman. All rights reserved.
           </p>
-          <ul className="flex gap-6">
+          <ul className="flex flex-wrap justify-center gap-4 sm:gap-6">
             {links.map(({ href, label }) => (
               <li key={href}>
                 <Link

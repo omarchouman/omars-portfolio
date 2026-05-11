@@ -5,21 +5,22 @@ export const projects = [
     description:
       "Laravel utility package focused on developer productivity and reusable abstractions.",
     stack: ["Laravel", "PHP"],
-    href: "#",
+    href: "https://larautilx.omarchouman.com",
   },
   {
     id: "jobly",
     title: "Jobly – Job Hunting Platform",
     description: "Full-stack platform connecting job seekers and employers.",
     stack: ["Vue.js", "Laravel", "MySQL"],
-    href: "#",
+    href: "https://github.com/omarchouman/jobly-frontend",
   },
   {
-    id: "erp",
-    title: "ERP Backend System",
-    description: "Backend ERP system for small/medium businesses.",
-    stack: ["Laravel", "MySQL"],
-    href: "#",
+    id: "justech",
+    title: "JUSTECH",
+    description:
+      "My software development agency specialized in revenue scaling, business operation optimization, and tech transformation for ambitious companies.",
+    stack: ["HTML", "CSS", "Tailwind", "JavaScript", "Svelte"],
+    href: "https://justechlb.com",
   },
   {
     id: "ai-microservices",

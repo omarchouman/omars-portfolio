@@ -3,6 +3,7 @@ import { WhatIDo } from "@/components/sections/WhatIDo";
 import { CoreExpertise } from "@/components/sections/CoreExpertise";
 import { Founder } from "@/components/sections/Founder";
 import { Writing } from "@/components/sections/Writing";
+import { LinkedInSection } from "@/components/sections/LinkedInSection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <CoreExpertise />
       <Founder />
       <Writing />
+      <LinkedInSection />
     </>
   );
 }

@@ -11,16 +11,16 @@ const experience = [
 
 export function AboutContent() {
   return (
-    <div className="pt-24">
-      <section className="mx-auto max-w-4xl px-6 py-20">
-        <div className="flex flex-col gap-12 md:flex-row md:items-start md:gap-16">
+    <div className="pt-20 sm:pt-24">
+      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
+        <div className="flex flex-col gap-8 sm:gap-12 md:flex-row md:items-start md:gap-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="flex-shrink-0"
           >
-            <div className="relative mx-auto h-72 w-72 overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow-card)] md:mx-0 md:h-80 md:w-80">
+            <div className="relative mx-auto h-56 w-56 overflow-hidden rounded-2xl border border-[var(--border)] shadow-[var(--shadow-card)] sm:h-72 sm:w-72 md:mx-0 md:h-80 md:w-80">
               <Image
                 src="/images/omar2.jpeg"
                 alt="Omar Chouman"
@@ -72,8 +72,8 @@ export function AboutContent() {
         </div>
       </section>
 
-      <section className="section-glow bg-[var(--gradient-section)] py-20">
-        <div className="mx-auto max-w-4xl px-6">
+      <section className="section-glow bg-[var(--gradient-section)] py-12 sm:py-16 md:py-20">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -107,8 +107,8 @@ export function AboutContent() {
         </div>
       </section>
 
-      <section className="bg-[var(--background)] py-20">
-        <div className="mx-auto max-w-4xl px-6">
+      <section className="bg-[var(--background)] py-12 sm:py-16 md:py-20">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -140,8 +140,8 @@ export function AboutContent() {
         </div>
       </section>
 
-      <section className="section-glow bg-[var(--gradient-section)] py-20">
-        <div className="mx-auto max-w-4xl px-6">
+      <section className="section-glow bg-[var(--gradient-section)] py-12 sm:py-16 md:py-20">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
