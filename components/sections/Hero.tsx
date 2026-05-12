@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[100vh] overflow-hidden bg-[var(--background)] pt-14 md:pt-16">
-      <div className="mx-auto grid min-h-[calc(100vh-3.5rem)] max-w-6xl grid-cols-1 items-center px-4 sm:px-6 md:min-h-[calc(100vh-4rem)] lg:grid-cols-12 lg:gap-12">
+    <section className="relative overflow-hidden bg-[var(--background)] pt-14 md:pt-16 lg:min-h-[100vh]">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center px-4 sm:px-6 lg:min-h-[calc(100vh-4rem)] lg:grid-cols-12 lg:gap-12">
         {/* Content — left */}
         <div className="relative order-1 flex flex-col justify-center py-8 sm:py-12 md:py-16 lg:order-1 lg:col-span-7 lg:pr-0">
           <motion.span
@@ -48,14 +48,8 @@ export function Hero() {
               View Projects
             </Link>
             <Link
-              href="/contact"
-              className="inline-flex items-center rounded-xl border border-[var(--border)] bg-transparent px-5 py-3 text-sm font-medium text-[var(--foreground)] transition-colors hover:border-[var(--blue-soft)] hover:text-[var(--blue-soft)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--blue-soft)] focus-visible:ring-offset-2"
-            >
-              Work With Me
-            </Link>
-            <Link
               href="/blog"
-              className="inline-flex items-center rounded-xl px-5 py-3 text-sm font-medium text-[var(--muted-foreground)] transition-colors hover:text-[var(--foreground)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--blue-soft)] focus-visible:ring-offset-2"
+              className="inline-flex items-center rounded-xl border border-[var(--border)] bg-transparent px-5 py-3 text-sm font-medium text-[var(--foreground)] transition-colors hover:border-[var(--blue-soft)] hover:text-[var(--blue-soft)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--blue-soft)] focus-visible:ring-offset-2"
             >
               Read My Writing
             </Link>

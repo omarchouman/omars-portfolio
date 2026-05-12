@@ -1,0 +1,10 @@
+[     138ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[     175ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[    2519ms] [LOG] %c EvalError
+    at oH (https://client.protechts.net/PXdOjV695v/main.min.js:2:66926)
+    at qJ (https://client.protechts.net/PXdOjV695v/main.min.js:2:75334)
+    at JZ (https://client.protechts.net/PXdOjV695v/main.min.js:2:225136)
+    at JX (https://client.protechts.net/PXdOjV695v/main.min.js:2:224759)
+    at https://client.protechts.net/PXdOjV695v/main.min.js:2:226477
+    at https://client.protechts.net/PXdOjV695v/main.min.js:2:226483
+    at https://client.protechts.net/PXdOjV695v/main.min.js:2:226948 @ https://client.protechts.net/PXdOjV695v/main.min.js:1

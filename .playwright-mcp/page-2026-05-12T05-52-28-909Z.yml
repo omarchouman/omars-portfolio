@@ -1,0 +1,152 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - navigation [ref=e4]:
+        - link "Omar Chouman" [ref=e5] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e6]:
+          - button "Toggle theme" [ref=e7]:
+            - img [ref=e8]
+          - button "Open menu" [ref=e10]:
+            - img [ref=e11]
+    - main [ref=e13]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - heading "Build Systems That Scale. Think in Leverage. Deliver with Clarity." [level=1] [ref=e18]:
+            - text: Build Systems That Scale.
+            - text: Think in Leverage. Deliver with Clarity.
+          - paragraph [ref=e19]: I'm Omar Chouman, a software engineer focused on building reliable, scalable systems across cloud, AI, and full-stack architecture.
+          - generic [ref=e20]:
+            - link "View Projects" [ref=e21] [cursor=pointer]:
+              - /url: /projects
+            - link "Work With Me" [ref=e22] [cursor=pointer]:
+              - /url: /contact
+            - link "Read My Writing" [ref=e23] [cursor=pointer]:
+              - /url: /blog
+        - img "Omar Chouman" [ref=e26]
+      - generic [ref=e28]:
+        - heading "What I Actually Do" [level=2] [ref=e29]
+        - generic [ref=e30]:
+          - paragraph [ref=e31]: I design and ship systems that survive reality.
+          - paragraph [ref=e32]: From AI-powered microservices to full-stack platforms, I focus on building software that is not just correct, but defensible. Clean architecture. Clear trade-offs. Scalable infrastructure.
+          - paragraph [ref=e33]: I've worked across backend engineering, cloud systems, DevOps pipelines, frontend applications, and machine learning workflows. My work is grounded in production, not theory.
+      - generic [ref=e35]:
+        - heading "Core Expertise" [level=2] [ref=e36]
+        - generic [ref=e37]:
+          - article [ref=e38]:
+            - heading "Scalable Backend Systems" [level=3] [ref=e39]
+            - paragraph [ref=e40]: PHP/Laravel, Node.js, Python/Flask, GraphQL. Microservices architecture, fault tolerance, API performance at scale.
+          - article [ref=e41]:
+            - heading "Cloud & Infrastructure" [level=3] [ref=e42]
+            - paragraph [ref=e43]: AWS, Terraform, Docker, Linux. CI/CD pipelines and IAC for reusable, production-grade infrastructure.
+          - article [ref=e44]:
+            - heading "AI & Intelligent Systems" [level=3] [ref=e45]
+            - paragraph [ref=e46]: ML model integration, anomaly detection systems, natural language query interfaces, predictive analytics, and workflow automation.
+          - article [ref=e47]:
+            - heading "Full Stack Development" [level=3] [ref=e48]
+            - paragraph [ref=e49]: ReactJS, Next.js, AngularJS, Vue.js. End-to-end delivery across ERP, ed-tech, recruitment, and enterprise platforms.
+      - generic [ref=e51]:
+        - heading "Founder" [level=2] [ref=e52]
+        - generic [ref=e53]:
+          - paragraph [ref=e54]:
+            - text: I'm also the founder of
+            - strong [ref=e55]: JUSTECH
+            - text: ", a software development agency focused on complex systems, AI solutions, infrastructure, and end-to-end product development."
+          - paragraph [ref=e56]: We partner with businesses to scale revenue, optimize operations, and build intelligent platforms that create real leverage.
+      - generic [ref=e58]:
+        - heading "Writing & Thinking" [level=2] [ref=e59]
+        - generic [ref=e60]:
+          - paragraph [ref=e61]: I write about engineering, systems, and career leverage.
+          - paragraph [ref=e62]:
+            - text: I'm currently writing a book titled
+            - strong [ref=e63]: "\"What No Programmer Discloses\""
+            - text: ", a direct look at how engineers actually grow, where most advice fails, and what separates competent developers from impactful ones."
+          - paragraph [ref=e64]: If you care about clarity over comfort, you'll like it.
+      - generic [ref=e66]:
+        - heading "Latest on LinkedIn" [level=2] [ref=e67]
+        - generic [ref=e68]:
+          - iframe [ref=e71]:
+            - article [ref=f4e2]:
+              - generic [ref=f4e3]:
+                - generic [ref=f4e5]:
+                  - link "View profile for Omar Chouman" [ref=f4e6] [cursor=pointer]:
+                    - /url: https://lb.linkedin.com/in/omarchouman?trk=public_post_embed_feed-actor-image
+                    - img "View profile for Omar Chouman" [ref=f4e7]
+                  - generic [ref=f4e8]:
+                    - link "View profile for Omar Chouman" [ref=f4e10] [cursor=pointer]:
+                      - /url: https://lb.linkedin.com/in/omarchouman?trk=public_post_embed_feed-actor-name
+                      - text: Omar Chouman
+                    - paragraph [ref=f4e11]: Senior Software Engineer | Author of LaraUtilX | AWS Certified | Diving deeper into the DevOps world
+                    - time [ref=f4e13]: 2mo
+                - link "LinkedIn" [ref=f4e15] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/feed/?trk=public_post_embed_linkedin-logo-image
+                  - generic [ref=f4e16]: LinkedIn
+                  - img [ref=f4e18]
+              - generic [ref=f4e29]:
+                - paragraph [ref=f4e30]:
+                  - text: "As Laravel developers, we keep rewriting the same utilities over and over. Filtering. Pagination. Query parsing. Helpers. Boilerplate. So I decided to standardize it. Today, I’m excited to share that LaraUtilX now has an official landing page: 🌐"
+                  - link "https://lnkd.in/dTUN4had" [ref=f4e31] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/redir/redirect?url=https%3A%2F%2Flnkd%2Ein%2FdTUN4had&urlhash=LLdW&trk=public_post_embed-text
+                  - text: LaraUtilX is a focused utilities layer for production-grade Laravel APIs & dashboards. It abstracts repetitive cross-cutting concerns so you can focus on real business logic. This is just the beginning 🔥🔥 Feedback, ideas, and brutal honesty are welcome 🙏
+                  - link "#Laravel" [ref=f4e32] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/signup/cold-join?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Ffeed%2Fhashtag%2Flaravel&trk=public_post_embed-text
+                  - link "#PHP" [ref=f4e33] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/signup/cold-join?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Ffeed%2Fhashtag%2Fphp&trk=public_post_embed-text
+                  - link "#SoftwareEngineering" [ref=f4e34] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/signup/cold-join?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Ffeed%2Fhashtag%2Fsoftwareengineering&trk=public_post_embed-text
+                  - link "#IndieMaker" [ref=f4e35] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/signup/cold-join?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Ffeed%2Fhashtag%2Findiemaker&trk=public_post_embed-text
+                  - link "#BuildInPublic" [ref=f4e36] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/signup/cold-join?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Ffeed%2Fhashtag%2Fbuildinpublic&trk=public_post_embed-text
+                  - link "#LaraUtilX" [ref=f4e37] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/signup/cold-join?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Ffeed%2Fhashtag%2Flarautilx&trk=public_post_embed-text
+                - button [ref=f4e38] [cursor=pointer]: …more
+              - list [ref=f4e39]:
+                - listitem [ref=f4e40]:
+                  - img "graphical user interface, text, application, email, website" [ref=f4e41]
+              - generic [ref=f4e42]:
+                - link "41 Reactions" [ref=f4e43] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/feed/update/urn:li:activity:7429493546073804800?trk=public_post_embed_social-actions-reactions
+                  - img [ref=f4e44]
+                  - img [ref=f4e45]
+                  - img [ref=f4e46]
+                  - generic [ref=f4e47]: "41"
+                - link "8 Comments" [ref=f4e48] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/feed/update/urn:li:activity:7429493546073804800?trk=public_post_embed_social-actions-comments
+              - generic [ref=f4e49]:
+                - link "Like" [ref=f4e50] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/signup/cold-join?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Ffeed%2Fupdate%2Furn%3Ali%3Aactivity%3A7429493546073804800&trk=public_post_embed_like-cta
+                  - img [ref=f4e52]
+                  - generic [ref=f4e54]: Like
+                - link "Comment" [ref=f4e55] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/signup/cold-join?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Ffeed%2Fupdate%2Furn%3Ali%3Aactivity%3A7429493546073804800&trk=public_post_embed_comment-cta
+                  - img [ref=f4e57]
+                  - generic [ref=f4e59]: Comment
+                - button "Share" [ref=f4e62] [cursor=pointer]:
+                  - img [ref=f4e64]
+                  - generic [ref=f4e66]: Share
+          - paragraph [ref=e72]:
+            - link "Read my latest LinkedIn post →" [ref=e73] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/omarchouman
+    - contentinfo [ref=e74]:
+      - generic [ref=e76]:
+        - paragraph [ref=e77]: © 2026 Omar Chouman. All rights reserved.
+        - list [ref=e78]:
+          - listitem [ref=e79]:
+            - link "Home" [ref=e80] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e81]:
+            - link "About" [ref=e82] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e83]:
+            - link "Projects" [ref=e84] [cursor=pointer]:
+              - /url: /projects
+          - listitem [ref=e85]:
+            - link "Blog" [ref=e86] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=e87]:
+            - link "Contact" [ref=e88] [cursor=pointer]:
+              - /url: /contact
+  - button "Open Next.js Dev Tools" [ref=e94] [cursor=pointer]:
+    - img [ref=e95]
+  - alert [ref=e98]

@@ -1,0 +1,83 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - navigation [ref=e4]:
+        - link "Omar Chouman" [ref=e5] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e6]:
+          - button "Toggle theme" [ref=e7]:
+            - img [ref=e8]
+          - button "Open menu" [ref=e10]:
+            - img [ref=e11]
+    - main [ref=e13]:
+      - generic [ref=e15]:
+        - heading "Projects" [level=1] [ref=e16]
+        - paragraph [ref=e17]: Selected work across backend systems, full-stack platforms, and AI integration.
+        - generic [ref=e18]:
+          - article [ref=e19]:
+            - link "LaraUtilX Laravel utility package focused on developer productivity and reusable abstractions. Laravel PHP View project →" [ref=e20] [cursor=pointer]:
+              - /url: https://larautilx.omarchouman.com
+              - generic [ref=e21]:
+                - heading "LaraUtilX" [level=3] [ref=e22]
+                - paragraph [ref=e23]: Laravel utility package focused on developer productivity and reusable abstractions.
+                - generic [ref=e24]:
+                  - generic [ref=e25]: Laravel
+                  - generic [ref=e26]: PHP
+                - generic [ref=e27]: View project →
+          - article [ref=e28]:
+            - link "Jobly – Job Hunting Platform Full-stack platform connecting job seekers and employers. Vue.js Laravel MySQL View project →" [ref=e29] [cursor=pointer]:
+              - /url: https://github.com/omarchouman/jobly-frontend
+              - generic [ref=e30]:
+                - heading "Jobly – Job Hunting Platform" [level=3] [ref=e31]
+                - paragraph [ref=e32]: Full-stack platform connecting job seekers and employers.
+                - generic [ref=e33]:
+                  - generic [ref=e34]: Vue.js
+                  - generic [ref=e35]: Laravel
+                  - generic [ref=e36]: MySQL
+                - generic [ref=e37]: View project →
+          - article [ref=e38]:
+            - link "JUSTECH My software development agency specialized in revenue scaling, business operation optimization, and tech transformation for ambitious companies. HTML CSS Tailwind JavaScript Svelte View project →" [ref=e39] [cursor=pointer]:
+              - /url: https://justechlb.com
+              - generic [ref=e40]:
+                - heading "JUSTECH" [level=3] [ref=e41]
+                - paragraph [ref=e42]: My software development agency specialized in revenue scaling, business operation optimization, and tech transformation for ambitious companies.
+                - generic [ref=e43]:
+                  - generic [ref=e44]: HTML
+                  - generic [ref=e45]: CSS
+                  - generic [ref=e46]: Tailwind
+                  - generic [ref=e47]: JavaScript
+                  - generic [ref=e48]: Svelte
+                - generic [ref=e49]: View project →
+          - article [ref=e50]:
+            - 'link "AI-Powered Microservices Production microservices integrated with machine learning models. Focus: model integration, API performance, cloud deployment, scalability. Microservices ML Cloud View project →" [ref=e51] [cursor=pointer]':
+              - /url: "#"
+              - generic [ref=e52]:
+                - heading "AI-Powered Microservices" [level=3] [ref=e53]
+                - paragraph [ref=e54]: "Production microservices integrated with machine learning models. Focus: model integration, API performance, cloud deployment, scalability."
+                - generic [ref=e55]:
+                  - generic [ref=e56]: Microservices
+                  - generic [ref=e57]: ML
+                  - generic [ref=e58]: Cloud
+                - generic [ref=e59]: View project →
+    - contentinfo [ref=e60]:
+      - generic [ref=e62]:
+        - paragraph [ref=e63]: © 2026 Omar Chouman. All rights reserved.
+        - list [ref=e64]:
+          - listitem [ref=e65]:
+            - link "Home" [ref=e66] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e67]:
+            - link "About" [ref=e68] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e69]:
+            - link "Projects" [ref=e70] [cursor=pointer]:
+              - /url: /projects
+          - listitem [ref=e71]:
+            - link "Blog" [ref=e72] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=e73]:
+            - link "Contact" [ref=e74] [cursor=pointer]:
+              - /url: /contact
+  - button "Open Next.js Dev Tools" [ref=e80] [cursor=pointer]:
+    - img [ref=e81]
+  - alert [ref=e84]

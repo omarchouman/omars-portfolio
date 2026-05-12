@@ -4,9 +4,52 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const experience = [
-  { role: "Software Engineer", company: "Intalio" },
-  { role: "Senior Software Engineer", company: "JUSTECH" },
-  { role: "Previous roles", company: "ERP systems, cloud infrastructure, education platforms" },
+  {
+    role: "Senior Software Engineer",
+    company: "Aspire Software",
+    period: "May 2025 – Present",
+    bullets: [
+      "Designed and implemented an AI-powered anomaly detection system to identify unusual behavior across IT and operational data.",
+      "Developed an AI-driven SQL Query Chatbot enabling IT teams to query system data using natural language.",
+      "Enhanced IAC (Infrastructure as Code) for reusable infrastructure and contributed to architectural and DevOps decisions.",
+    ],
+  },
+  {
+    role: "Software Engineer",
+    company: "Intalio",
+    period: "September 2023 – February 2025",
+    bullets: [
+      "Built and deployed microservices powered by AI and machine learning models, boosting predictive analytics and workflow automation.",
+      "Designed scalable microservice architectures ensuring high performance, fault tolerance, and seamless platform integration.",
+    ],
+  },
+  {
+    role: "Founder & Senior Software Engineer",
+    company: "Justech",
+    period: "May 2019 – Present",
+    bullets: [
+      "Led development and deployment of customized software solutions for clients, ensuring high performance and scalability.",
+      "Collaborated with the development team to maintain efficient code and optimize performance across client projects.",
+    ],
+  },
+  {
+    role: "Software Engineer",
+    company: "Kamkalima",
+    period: "December 2022 – August 2023",
+    bullets: [
+      "Designed, coded, and deployed new features while maintaining system stability and improving overall platform performance.",
+      "Analyzed application bottlenecks and implemented optimization techniques, improving user engagement and response times.",
+    ],
+  },
+  {
+    role: "Software Developer",
+    company: "Cirrus (An ITG Company)",
+    period: "April 2022 – December 2022",
+    bullets: [
+      "Built a web application platform using Vue.JS, Laravel, and Microsoft SQL Server.",
+      "Designed and implemented an internal ERP system to streamline resource management and reduce manual workload.",
+    ],
+  },
 ];
 
 export function AboutContent() {
@@ -133,7 +176,15 @@ export function AboutContent() {
                 <span className="text-sm font-medium text-[var(--blue-soft)]">
                   {item.role}
                 </span>
-                <span className="text-[var(--foreground)]">{item.company}</span>
+                <span className="text-[var(--foreground)] font-medium">{item.company}</span>
+                <span className="text-xs text-[var(--muted-foreground)]">{item.period}</span>
+                <ul className="mt-2 list-disc list-inside space-y-1">
+                  {item.bullets.map((bullet) => (
+                    <li key={bullet} className="text-sm leading-relaxed text-[var(--muted-foreground)]">
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
           </motion.ul>

@@ -5,19 +5,19 @@ import { motion } from "framer-motion";
 const expertise = [
   {
     title: "Scalable Backend Systems",
-    description: "Microservices, APIs, performance optimization, system design.",
+    description: "PHP/Laravel, Node.js, Python/Flask, GraphQL. Microservices architecture, fault tolerance, API performance at scale.",
   },
   {
     title: "Cloud & Infrastructure",
-    description: "AWS deployments, Docker, CI/CD pipelines, automation.",
+    description: "AWS, Terraform, Docker, Linux. CI/CD pipelines and IAC for reusable, production-grade infrastructure.",
   },
   {
     title: "AI & Intelligent Systems",
-    description: "Machine learning integration, predictive analytics, workflow automation.",
+    description: "ML model integration, anomaly detection systems, natural language query interfaces, predictive analytics, and workflow automation.",
   },
   {
     title: "Full Stack Development",
-    description: "Laravel, Flask, React, Angular, modern frontend architecture.",
+    description: "ReactJS, Next.js, AngularJS, Vue.js. End-to-end delivery across ERP, ed-tech, recruitment, and enterprise platforms.",
   },
 ];
 
