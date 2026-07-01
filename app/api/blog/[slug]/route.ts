@@ -11,7 +11,7 @@ export async function GET(request: NextRequest, { params }: Params) {
       return NextResponse.json({ error: "Post not found." }, { status: 404 });
     }
     return NextResponse.json(post);
-  } catch (e) {
+  } catch {
     return NextResponse.json({ error: "Failed to load post." }, { status: 500 });
   }
 }
@@ -35,7 +35,7 @@ export async function PUT(request: NextRequest, { params }: Params) {
       return NextResponse.json({ error: result.error }, { status: 400 });
     }
     return NextResponse.json({ success: true });
-  } catch (e) {
+  } catch {
     return NextResponse.json({ error: "Failed to update post." }, { status: 500 });
   }
 }
@@ -48,7 +48,7 @@ export async function DELETE(request: NextRequest, { params }: Params) {
       return NextResponse.json({ error: result.error }, { status: 404 });
     }
     return NextResponse.json({ success: true });
-  } catch (e) {
+  } catch {
     return NextResponse.json({ error: "Failed to delete post." }, { status: 500 });
   }
 }

@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function LinkedInSection() {
   const embedUrl = process.env.NEXT_PUBLIC_LINKEDIN_EMBED_URL;
@@ -10,21 +8,13 @@ export function LinkedInSection() {
   return (
     <section className="section-glow bg-[var(--background)] py-12 sm:py-16 md:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <Reveal
+          as="h2"
           className="text-2xl font-semibold tracking-tight text-[var(--foreground)] sm:text-3xl"
         >
           Latest on LinkedIn
-        </motion.h2>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="mt-6 w-full sm:mt-8 sm:w-fit"
-        >
+        </Reveal>
+        <Reveal delay={0.1} className="mt-6 w-full sm:mt-8 sm:w-fit">
           <div className="w-full min-w-0 max-w-[504px] overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] p-3 sm:p-4 shadow-[var(--shadow-card)]">
             <div className="relative aspect-[504/545] w-full min-h-[320px] overflow-hidden">
               <iframe
@@ -39,7 +29,6 @@ export function LinkedInSection() {
             </div>
           </div>
           <p className="mt-4 text-sm text-[var(--muted-foreground)]">
-            
             <a
               href="https://www.linkedin.com/in/omarchouman"
               target="_blank"
@@ -49,7 +38,7 @@ export function LinkedInSection() {
               Read my latest LinkedIn post →
             </a>
           </p>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

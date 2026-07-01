@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://omar-chouman.com"),
   title: {
     default: "Omar Chouman — Software Engineer | Systems, Cloud & AI",
     template: "%s | Omar Chouman",
@@ -27,7 +28,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
   },
-  robots: "index, follow",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

@@ -1,36 +1,35 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { projects } from "@/lib/projects";
 import Link from "next/link";
+import { projects } from "@/lib/projects";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function ProjectsGrid() {
   return (
     <div className="pt-20 sm:pt-24">
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+        <Reveal
+          as="h1"
+          viewport={false}
           className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl"
         >
           Projects
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+        </Reveal>
+        <Reveal
+          as="p"
+          viewport={false}
+          delay={0.1}
           className="mt-4 max-w-2xl text-[var(--muted-foreground)]"
         >
           Selected work across backend systems, full-stack platforms, and AI integration.
-        </motion.p>
+        </Reveal>
         <div className="mt-10 grid gap-6 sm:mt-16 sm:grid-cols-2 sm:gap-8">
           {projects.map((project, i) => (
-            <motion.article
+            <Reveal
               key={project.id}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }}
+              as="article"
+              viewport={false}
+              y={24}
+              duration={0.4}
+              delay={0.1 + i * 0.08}
               className="h-full"
             >
               <Link href={project.href} className="group block h-full" target="_blank" rel="noopener noreferrer">
@@ -56,7 +55,7 @@ export function ProjectsGrid() {
                   </span>
                 </div>
               </Link>
-            </motion.article>
+            </Reveal>
           ))}
         </div>
       </section>

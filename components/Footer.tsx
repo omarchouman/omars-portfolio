@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { Reveal } from "@/components/ui/Reveal";
 
 const links = [
   { href: "/", label: "Home" },
@@ -15,10 +13,8 @@ export function Footer() {
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--background)]">
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+        <Reveal
+          y={0}
           className="flex flex-col items-center justify-between gap-6 text-center sm:flex-row sm:text-left"
         >
           <p className="order-2 text-sm text-[var(--muted-foreground)] sm:order-1">
@@ -36,7 +32,7 @@ export function Footer() {
               </li>
             ))}
           </ul>
-        </motion.div>
+        </Reveal>
       </div>
     </footer>
   );

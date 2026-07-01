@@ -67,6 +67,11 @@ export function ContactForm() {
         {status === "sent" && "Message sent"}
         {status === "error" && "Try again"}
       </motion.button>
+      <p role="status" aria-live="polite" className="sr-only">
+        {status === "sending" && "Sending message"}
+        {status === "sent" && "Message sent successfully"}
+        {status === "error" && "Something went wrong, please try again"}
+      </p>
     </form>
   );
 }

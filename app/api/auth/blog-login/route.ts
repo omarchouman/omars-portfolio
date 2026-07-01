@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
     cookieStore.set(name, token, options);
 
     return NextResponse.json({ success: true });
-  } catch (e) {
+  } catch {
     return NextResponse.json(
       { error: "Authentication failed." },
       { status: 500 }
