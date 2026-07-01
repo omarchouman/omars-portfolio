@@ -14,10 +14,8 @@ No test suite is configured.
 
 ## Environment Variables
 
-Copy `.env.example` to `.env.local` before running locally. Required vars:
+Copy `.env.example` to `.env.local` before running locally. Vars:
 
-- `BLOG_ADMIN_SECRET` — JWT signing secret, minimum 32 characters (generate with `openssl rand -base64 32`)
-- `BLOG_ADMIN_PASSWORD` — plaintext password for the blog admin login
 - `NEXT_PUBLIC_LINKEDIN_EMBED_URL` — (optional) LinkedIn post embed URL for the home page LinkedIn section
 
 ## Architecture
@@ -30,21 +28,15 @@ Copy `.env.example` to `.env.local` before running locally. Required vars:
 - `/about`, `/projects`, `/contact` — Single-section pages wrapping components from `components/sections/`
 - `/blog` — Public blog listing, reads from `content/blog/*.md`
 - `/blog/[slug]` — Individual blog post page
-- `/blog/admin` — Protected CMS (requires JWT cookie); redirected to `/blog/admin/login` if unauthenticated
 
-### Blog CMS
+### Blog Content
 
-Blog posts are **Markdown files on disk** at `content/blog/`. All CRUD is handled by:
-- `lib/blog.ts` — filesystem helpers (`getAllPosts`, `getPostBySlug`, `createPost`, `updatePost`, `deletePost`) using `gray-matter` for frontmatter
-- API routes at `app/api/blog/` — POST (create), GET/PUT/DELETE at `app/api/blog/[slug]/`
-- `components/blog/BlogAdmin.tsx` — client-side admin UI
+Blog posts are **Markdown files on disk** at `content/blog/`, committed to the repo — there is no in-app editor or write API. To publish, add/edit a `.md` file under `content/blog/` and push; the site reads them at build time.
+
+- `lib/blog.ts` — filesystem read helpers (`getAllPosts`, `getPostBySlug`) using `gray-matter` for frontmatter
 - `components/blog/MarkdownRenderer.tsx` — renders post content via `react-markdown` + `remark-gfm`
 
 Frontmatter schema: `title`, `slug`, `date` (YYYY-MM-DD), `excerpt`.
-
-### Auth
-
-`middleware.ts` protects `/blog/admin/**` and API write routes by verifying a JWT stored in an `httpOnly` cookie (`blog_admin_token`). Auth logic lives in `lib/auth.ts` (uses `jose`). Login/logout endpoints: `app/api/auth/blog-login/route.ts` and `app/api/auth/blog-logout/route.ts`.
 
 ### Static Data
 

@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/blog";
 import { BlogContent } from "@/components/sections/BlogContent";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = {
   title: "Blog",
   description:

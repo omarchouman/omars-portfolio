@@ -6,8 +6,6 @@ import { MarkdownRenderer } from "@/components/blog/MarkdownRenderer";
 
 type Props = { params: Promise<{ slug: string }> };
 
-export const dynamic = "force-dynamic";
-
 export async function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map((p) => ({ slug: p.slug }));
