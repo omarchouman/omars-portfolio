@@ -5,17 +5,48 @@ import { motion } from "framer-motion";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
-    // Simulate submit; replace with your API or form service
-    await new Promise((r) => setTimeout(r, 800));
-    setStatus("sent");
+    setErrorMessage(null);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          email: data.get("email"),
+          message: data.get("message"),
+          company: data.get("company"),
+        }),
+      });
+      const result = await res.json();
+      if (!res.ok) throw new Error(result.error ?? "Something went wrong");
+      setStatus("sent");
+      form.reset();
+    } catch (err) {
+      setErrorMessage(err instanceof Error ? err.message : "Something went wrong");
+      setStatus("error");
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="relative space-y-6">
+      <div className="absolute left-[-9999px] top-auto" aria-hidden="true">
+        <label htmlFor="company">Company</label>
+        <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+      {status === "error" && errorMessage && (
+        <p className="rounded-lg bg-red-500/10 p-3 text-sm text-red-600 dark:text-red-400">
+          {errorMessage}
+        </p>
+      )}
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-[var(--foreground)]">
           Name
@@ -70,7 +101,7 @@ export function ContactForm() {
       <p role="status" aria-live="polite" className="sr-only">
         {status === "sending" && "Sending message"}
         {status === "sent" && "Message sent successfully"}
-        {status === "error" && "Something went wrong, please try again"}
+        {status === "error" && (errorMessage ?? "Something went wrong, please try again")}
       </p>
     </form>
   );

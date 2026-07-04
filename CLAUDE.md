@@ -16,6 +16,7 @@ No test suite is configured.
 
 Copy `.env.example` to `.env.local` before running locally. Vars:
 
+- `RESEND_API_KEY` — Resend API key used by `app/api/contact/route.ts` to send contact form emails
 - `NEXT_PUBLIC_LINKEDIN_EMBED_URL` — (optional) LinkedIn post embed URL for the home page LinkedIn section
 
 ## Architecture
@@ -37,6 +38,10 @@ Blog posts are **Markdown files on disk** at `content/blog/`, committed to the r
 - `components/blog/MarkdownRenderer.tsx` — renders post content via `react-markdown` + `remark-gfm`
 
 Frontmatter schema: `title`, `slug`, `date` (YYYY-MM-DD), `excerpt`.
+
+### Contact Form
+
+`components/ContactForm.tsx` posts to `app/api/contact/route.ts`, which sends email via Resend (`no-reply@omarchouman.com` → `omar.chouman0@gmail.com`, with `replyTo` set to the submitter's address). Includes a hidden honeypot field (`company`) for basic spam filtering.
 
 ### Static Data
 
