@@ -1,20 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { renderContactEmailHtml } from "@/lib/contact-email";
 
 const TO_EMAIL = "omar.chouman0@gmail.com";
 const FROM_EMAIL = "no-reply@omarchouman.com";
 const MAX_FIELD_LENGTH = 5000;
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
 
 export async function POST(request: NextRequest) {
   try {
@@ -57,7 +49,7 @@ export async function POST(request: NextRequest) {
       replyTo: email,
       subject: `New message from ${name}`,
       text: `From: ${name} <${email}>\n\n${message}`,
-      html: `<p><strong>From:</strong> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p><p>${escapeHtml(message).replace(/\n/g, "<br />")}</p>`,
+      html: renderContactEmailHtml({ name, email, message }),
     });
 
     if (error) {
