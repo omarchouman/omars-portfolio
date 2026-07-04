@@ -1,7 +1,12 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import type { Heading } from "@/lib/blog";
 
-export function MarkdownRenderer({ content }: { content: string }) {
+type Props = { content: string; headings?: Heading[] };
+
+export function MarkdownRenderer({ content, headings = [] }: Props) {
+  let headingIndex = 0;
+
   return (
     <div className="prose prose-slate dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-[var(--blue-soft)] prose-a:no-underline hover:prose-a:underline prose-pre:overflow-x-auto [&_pre]:overflow-x-auto [&_pre]:max-w-full [&_pre]:rounded-lg">
     <ReactMarkdown
@@ -12,16 +17,22 @@ export function MarkdownRenderer({ content }: { content: string }) {
             {children}
           </h1>
         ),
-        h2: ({ children }) => (
-          <h2 className="mb-3 mt-8 text-xl font-semibold text-[var(--foreground)]">
-            {children}
-          </h2>
-        ),
-        h3: ({ children }) => (
-          <h3 className="mb-2 mt-6 text-lg font-semibold text-[var(--foreground)]">
-            {children}
-          </h3>
-        ),
+        h2: ({ children }) => {
+          const id = headings[headingIndex++]?.id;
+          return (
+            <h2 id={id} className="mb-3 mt-8 scroll-mt-24 text-xl font-semibold text-[var(--foreground)]">
+              {children}
+            </h2>
+          );
+        },
+        h3: ({ children }) => {
+          const id = headings[headingIndex++]?.id;
+          return (
+            <h3 id={id} className="mb-2 mt-6 scroll-mt-24 text-lg font-semibold text-[var(--foreground)]">
+              {children}
+            </h3>
+          );
+        },
         p: ({ children }) => (
           <p className="mb-4 leading-relaxed text-[var(--muted-foreground)]">{children}</p>
         ),
