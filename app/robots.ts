@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+const SITE_URL = "https://omar-chouman.com";
+
 const AI_CRAWLERS = [
   "GPTBot",
   "ChatGPT-User",
@@ -24,5 +26,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       })),
     ],
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }
