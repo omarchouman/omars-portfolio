@@ -7,6 +7,7 @@ import { CoverImage } from "@/components/blog/CoverImage";
 import { TableOfContents } from "@/components/blog/TableOfContents";
 import { RelatedPosts } from "@/components/blog/RelatedPosts";
 import { Reveal } from "@/components/ui/Reveal";
+import { getBlogPostingJsonLd } from "@/lib/structured-data";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -36,6 +37,10 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <div className="pt-20 sm:pt-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getBlogPostingJsonLd(post)) }}
+      />
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <Link
           href="/blog"

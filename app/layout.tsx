@@ -6,6 +6,7 @@ import { CommandPaletteProvider } from "@/components/CommandPaletteProvider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { getAllPosts } from "@/lib/blog";
+import { getPersonJsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://omar-chouman.com"),
@@ -51,6 +52,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getPersonJsonLd()) }}
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-J6JB0EHFPW"
           strategy="afterInteractive"
