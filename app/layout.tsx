@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { CommandPaletteProvider } from "@/components/CommandPaletteProvider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://omar-chouman.com"),
@@ -39,6 +41,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const posts = getAllPosts();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -57,11 +61,13 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <div className="flex min-h-screen flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
+          <CommandPaletteProvider posts={posts}>
+            <div className="flex min-h-screen flex-col">
+              <Navbar />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+          </CommandPaletteProvider>
         </ThemeProvider>
       </body>
     </html>

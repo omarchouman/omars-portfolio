@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCommandPalette } from "@/components/CommandPaletteProvider";
 
 const emptySubscribe = () => () => {};
 
@@ -41,6 +42,14 @@ function MoonIcon() {
   );
 }
 
+function SearchIcon() {
+  return (
+    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+    </svg>
+  );
+}
+
 function ThemeToggleButton({ theme, onToggle }: { theme: string | undefined; onToggle: () => void }) {
   return (
     <button
@@ -58,6 +67,7 @@ export function Navbar() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const mounted = useMounted();
+  const { setOpen: setCommandPaletteOpen } = useCommandPalette();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [prevPathname, setPrevPathname] = useState(pathname);
 
@@ -124,6 +134,19 @@ export function Navbar() {
               </Link>
             </li>
           ))}
+          <li>
+            <button
+              type="button"
+              onClick={() => setCommandPaletteOpen(true)}
+              className="flex items-center gap-2 rounded-lg border border-[var(--border)] px-3 py-1.5 text-sm text-[var(--muted-foreground)] transition-colors hover:border-[var(--blue-soft)] hover:text-[var(--foreground)]"
+            >
+              <SearchIcon />
+              <span>Search</span>
+              <kbd className="rounded border border-[var(--border)] px-1.5 py-0.5 font-sans text-xs text-[var(--muted-foreground)]">
+                ⌘K
+              </kbd>
+            </button>
+          </li>
           {mounted && (
             <li>
               <ThemeToggleButton theme={theme} onToggle={toggleTheme} />
@@ -131,8 +154,16 @@ export function Navbar() {
           )}
         </ul>
 
-        {/* Mobile: theme + hamburger */}
+        {/* Mobile: search + theme + hamburger */}
         <div className="flex items-center gap-1 md:hidden">
+          <button
+            type="button"
+            aria-label="Search"
+            onClick={() => setCommandPaletteOpen(true)}
+            className="rounded-lg p-2 text-[var(--muted-foreground)] transition-colors hover:bg-[var(--border)] hover:text-[var(--foreground)]"
+          >
+            <SearchIcon />
+          </button>
           {mounted && <ThemeToggleButton theme={theme} onToggle={toggleTheme} />}
           <button
             type="button"
