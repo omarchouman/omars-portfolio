@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
+import { FloatingRobot } from "@/components/ui/FloatingRobot";
 
 export default function NotFound() {
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center px-4 pt-20 text-center sm:px-6 sm:pt-24">
+      <Reveal viewport={false} duration={0.5} className="mb-4">
+        <FloatingRobot />
+      </Reveal>
       <Reveal
         viewport={false}
         y={12}
