@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import { Reveal } from "@/components/ui/Reveal";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
 
 export function ProjectsGrid() {
   return (
@@ -33,7 +34,11 @@ export function ProjectsGrid() {
               className="h-full"
             >
               <Link href={project.href} className="group block h-full" target="_blank" rel="noopener noreferrer">
-                <div className="glass-card flex h-full flex-col overflow-hidden p-6 transition-all duration-300 hover:shadow-lg group-hover:border-[var(--blue-soft)]/30">
+                <SpotlightCard
+                  as="div"
+                  reveal={false}
+                  className="glass-card h-full p-6 transition-all duration-300 hover:shadow-lg group-hover:border-[var(--blue-soft)]/30"
+                >
                   <h3 className="text-xl font-semibold text-[var(--foreground)] transition-colors group-hover:text-[var(--blue-soft)]">
                     {project.title}
                   </h3>
@@ -53,7 +58,7 @@ export function ProjectsGrid() {
                   <span className="mt-4 inline-flex items-center text-sm font-medium text-[var(--blue-soft)]">
                     View project →
                   </span>
-                </div>
+                </SpotlightCard>
               </Link>
             </Reveal>
           ))}

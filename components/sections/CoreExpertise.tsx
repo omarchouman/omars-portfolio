@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/ui/Reveal";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
 
 const expertise = [
   {
@@ -31,13 +32,10 @@ export function CoreExpertise() {
         </Reveal>
         <div className="mt-8 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {expertise.map((item, i) => (
-            <Reveal
+            <SpotlightCard
               key={item.title}
-              as="article"
-              y={24}
-              duration={0.4}
               delay={i * 0.08}
-              className="glass-card p-6 transition-all duration-200 hover:shadow-lg"
+              className="glass-card h-full p-6 transition-all duration-200 hover:shadow-lg"
             >
               <h3 className="text-lg font-semibold text-[var(--foreground)]">
                 {item.title}
@@ -45,7 +43,7 @@ export function CoreExpertise() {
               <p className="mt-3 text-sm leading-relaxed text-[var(--muted-foreground)]">
                 {item.description}
               </p>
-            </Reveal>
+            </SpotlightCard>
           ))}
         </div>
       </div>
