@@ -1,15 +1,34 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { getAllPosts } from "@/lib/blog";
 import { BlogContent } from "@/components/sections/BlogContent";
+import { Pagination } from "@/components/blog/Pagination";
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description:
-    "Omar Chouman — Writing about engineering, systems, AWS, and career leverage.",
-};
+const POSTS_PER_PAGE = 6;
 
-export default function BlogPage() {
+type Props = { searchParams: Promise<{ page?: string }> };
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { page } = await searchParams;
+  const pageNumber = Number(page) || 1;
+  return {
+    title: pageNumber > 1 ? `Blog – Page ${pageNumber}` : "Blog",
+    description: "Omar Chouman — Writing about engineering, systems, AWS, and career leverage.",
+  };
+}
+
+export default async function BlogPage({ searchParams }: Props) {
+  const { page } = await searchParams;
   const posts = getAllPosts();
+  const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
+
+  const currentPage = page === undefined ? 1 : Number(page);
+  if (!Number.isInteger(currentPage) || currentPage < 1 || currentPage > totalPages) {
+    notFound();
+  }
+
+  const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+  const paginatedPosts = posts.slice(startIndex, startIndex + POSTS_PER_PAGE);
 
   return (
     <div className="pt-20 sm:pt-24">
@@ -20,7 +39,8 @@ export default function BlogPage() {
         <p className="mt-6 max-w-2xl text-lg text-[var(--muted-foreground)]">
           I write about engineering, systems, and career leverage.
         </p>
-        <BlogContent posts={posts} />
+        <BlogContent posts={paginatedPosts} />
+        <Pagination currentPage={currentPage} totalPages={totalPages} />
       </section>
     </div>
   );
