@@ -48,6 +48,6 @@ Take advantage of AWS’s Free Tier services for new users. This allows you to e
 
 Optimizing costs on AWS is an ongoing process that requires regular assessment and adjustment. By right-sizing resources, leveraging reserved and spot instances, implementing auto-scaling, monitoring usage, optimizing storage, and exploring free tier services, you can ensure that your AWS infrastructure remains cost-effective and aligned with your business objectives.
 
-Remember, cost optimization isn’t just about cutting expenses — it’s about spending wisely to maximize the value AWS brings to your organization.
+Remember, cost optimization isn’t just about cutting expenses, it’s about spending wisely to maximize the value AWS brings to your organization.
 
-Catch You In The Next Article — Keep Hustling 🔥🔥
+Catch You In The Next Article. Keep Hustling 🔥🔥

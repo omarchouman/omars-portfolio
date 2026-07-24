@@ -116,11 +116,11 @@ export function AboutContent() {
             <p className="text-lg">
               Most developers focus on correctness. I focus on defensibility.
             </p>
-            <ul className="list-none space-y-2">
-              <li>— What breaks first?</li>
-              <li>— What scales poorly?</li>
-              <li>— What decision will cost us later?</li>
-              <li>— What should we not build?</li>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>What breaks first?</li>
+              <li>What scales poorly?</li>
+              <li>What decision will cost us later?</li>
+              <li>What should we not build?</li>
             </ul>
             <p className="text-[var(--foreground)] font-medium">
               Good engineers execute.

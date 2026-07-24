@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCommandPalette } from "@/components/CommandPaletteProvider";
 
@@ -18,13 +18,35 @@ function useMounted() {
   );
 }
 
-const navLinks = [
+type NavLink = { href: string; label: string };
+type NavItem = NavLink | { label: string; children: NavLink[] };
+
+function isDropdown(item: NavItem): item is { label: string; children: NavLink[] } {
+  return "children" in item;
+}
+
+const navLinks: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
+  { label: "Resources", children: [{ href: "/resources/power-prompts", label: "Power Prompts" }] },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
+
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  );
+}
 
 function SunIcon() {
   return (
@@ -69,11 +91,16 @@ export function Navbar() {
   const mounted = useMounted();
   const { setOpen: setCommandPaletteOpen } = useCommandPalette();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
+  const [mobileAccordionOpen, setMobileAccordionOpen] = useState<string | null>(null);
   const [prevPathname, setPrevPathname] = useState(pathname);
+  const dropdownRef = useRef<HTMLLIElement>(null);
 
   if (pathname !== prevPathname) {
     setPrevPathname(pathname);
     setMobileOpen(false);
+    setDropdownOpen(null);
+    setMobileAccordionOpen(null);
   }
 
   useEffect(() => {
@@ -92,6 +119,26 @@ export function Navbar() {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [mobileOpen]);
+
+  useEffect(() => {
+    if (!dropdownOpen) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(null);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setDropdownOpen(null);
+    };
+    window.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [dropdownOpen]);
 
   const closeMobile = () => setMobileOpen(false);
   const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
@@ -114,26 +161,75 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-6 md:flex lg:gap-8">
-          {navLinks.map(({ href, label }) => (
-            <li key={href}>
-              <Link
-                href={href}
-                aria-current={pathname === href ? "page" : undefined}
-                className={`relative text-sm font-medium transition-colors hover:text-[var(--blue-soft)] ${
-                  pathname === href ? "text-[var(--blue-soft)]" : "text-[var(--muted-foreground)]"
-                }`}
-              >
-                {label}
-                {pathname === href && (
-                  <motion.span
-                    layoutId="nav-pill"
-                    className="absolute -bottom-1 left-0 right-0 h-px bg-[var(--blue-soft)]"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </Link>
-            </li>
-          ))}
+          {navLinks.map((item) => {
+            if (isDropdown(item)) {
+              const isActive = item.children.some((c) => pathname === c.href);
+              const open = dropdownOpen === item.label;
+              return (
+                <li key={item.label} ref={dropdownRef} className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setDropdownOpen(open ? null : item.label)}
+                    aria-expanded={open}
+                    className={`relative flex items-center gap-1 text-sm font-medium transition-colors hover:text-[var(--blue-soft)] ${
+                      isActive ? "text-[var(--blue-soft)]" : "text-[var(--muted-foreground)]"
+                    }`}
+                  >
+                    {item.label}
+                    <ChevronIcon open={open} />
+                  </button>
+                  <AnimatePresence>
+                    {open && (
+                      <motion.ul
+                        initial={{ opacity: 0, y: -4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -4 }}
+                        transition={{ duration: 0.15 }}
+                        className="glass-card absolute top-full left-0 mt-2 min-w-[10rem] overflow-hidden rounded-xl border border-[var(--border)] py-1 shadow-lg"
+                      >
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <Link
+                              href={child.href}
+                              onClick={() => setDropdownOpen(null)}
+                              aria-current={pathname === child.href ? "page" : undefined}
+                              className={`block px-4 py-2 text-sm transition-colors hover:bg-[var(--border)] hover:text-[var(--blue-soft)] ${
+                                pathname === child.href ? "text-[var(--blue-soft)]" : "text-[var(--foreground)]"
+                              }`}
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </li>
+              );
+            }
+
+            const { href, label } = item;
+            return (
+              <li key={href}>
+                <Link
+                  href={href}
+                  aria-current={pathname === href ? "page" : undefined}
+                  className={`relative text-sm font-medium transition-colors hover:text-[var(--blue-soft)] ${
+                    pathname === href ? "text-[var(--blue-soft)]" : "text-[var(--muted-foreground)]"
+                  }`}
+                >
+                  {label}
+                  {pathname === href && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      className="absolute -bottom-1 left-0 right-0 h-px bg-[var(--blue-soft)]"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              </li>
+            );
+          })}
           <li>
             <button
               type="button"
@@ -196,20 +292,69 @@ export function Navbar() {
             className="overflow-hidden border-t border-[var(--border)] bg-[var(--glass-bg)] backdrop-blur-xl md:hidden"
           >
             <ul className="flex flex-col gap-0 px-4 py-4">
-              {navLinks.map(({ href, label }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    onClick={closeMobile}
-                    aria-current={pathname === href ? "page" : undefined}
-                    className={`block rounded-lg px-4 py-3 text-base font-medium transition-colors hover:bg-[var(--border)] hover:text-[var(--blue-soft)] ${
-                      pathname === href ? "text-[var(--blue-soft)]" : "text-[var(--muted-foreground)]"
-                    }`}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
+              {navLinks.map((item) => {
+                if (isDropdown(item)) {
+                  const isActive = item.children.some((c) => pathname === c.href);
+                  const expanded = mobileAccordionOpen === item.label;
+                  return (
+                    <li key={item.label}>
+                      <button
+                        type="button"
+                        onClick={() => setMobileAccordionOpen(expanded ? null : item.label)}
+                        aria-expanded={expanded}
+                        className={`flex w-full items-center justify-between rounded-lg px-4 py-3 text-base font-medium transition-colors hover:bg-[var(--border)] hover:text-[var(--blue-soft)] ${
+                          isActive ? "text-[var(--blue-soft)]" : "text-[var(--muted-foreground)]"
+                        }`}
+                      >
+                        {item.label}
+                        <ChevronIcon open={expanded} />
+                      </button>
+                      <AnimatePresence>
+                        {expanded && (
+                          <motion.ul
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.15 }}
+                            className="overflow-hidden pl-4"
+                          >
+                            {item.children.map((child) => (
+                              <li key={child.href}>
+                                <Link
+                                  href={child.href}
+                                  onClick={closeMobile}
+                                  aria-current={pathname === child.href ? "page" : undefined}
+                                  className={`block rounded-lg px-4 py-3 text-base font-medium transition-colors hover:bg-[var(--border)] hover:text-[var(--blue-soft)] ${
+                                    pathname === child.href ? "text-[var(--blue-soft)]" : "text-[var(--muted-foreground)]"
+                                  }`}
+                                >
+                                  {child.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </motion.ul>
+                        )}
+                      </AnimatePresence>
+                    </li>
+                  );
+                }
+
+                const { href, label } = item;
+                return (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      onClick={closeMobile}
+                      aria-current={pathname === href ? "page" : undefined}
+                      className={`block rounded-lg px-4 py-3 text-base font-medium transition-colors hover:bg-[var(--border)] hover:text-[var(--blue-soft)] ${
+                        pathname === href ? "text-[var(--blue-soft)]" : "text-[var(--muted-foreground)]"
+                      }`}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </motion.div>
         )}

@@ -20,11 +20,11 @@ It looked like the exact option that I needed for setting up my tiny server.
 
 Now, I will be telling you about the exact simple steps I went through during the setup:
 
-**First — Changing the main operating system from Windows to Linux**
+**First: Changing the main operating system from Windows to Linux**
 
 For that, any Linux distribution would work. I personally went with LUbuntu to have just the essential and light features as I am not going to be using the OS very much.
 
-**Second — Installing CasaOS on top of my main OS**
+**Second: Installing CasaOS on top of my main OS**
 
 It’s very easy, you just open up any terminal and you do this command as they stated on the CasaOS website:
 
@@ -34,7 +34,7 @@ curl -fsSL https://get.casaos.io | sudo bash
 
 and just like that Casa is installed!
 
-**Third — Finding the IP address that I should hit to begin using the system**
+**Third: Finding the IP address that I should hit to begin using the system**
 
 Most people are having trouble with that. But, it is very easy!
 

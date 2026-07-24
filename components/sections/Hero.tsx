@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-[var(--background)] pt-14 md:pt-16 lg:min-h-[100vh]">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center px-4 sm:px-6 lg:min-h-[calc(100vh-4rem)] lg:grid-cols-12 lg:gap-12">
-        {/* Content — left */}
+        {/* Content: left */}
         <div className="relative order-1 flex flex-col justify-center py-8 sm:py-12 md:py-16 lg:order-1 lg:col-span-7 lg:pr-0">
           <Reveal
             as="span"
@@ -60,7 +60,7 @@ export function Hero() {
           </Reveal>
         </div>
 
-        {/* Image — right, smaller */}
+        {/* Image: right, smaller */}
         <Reveal
           viewport={false}
           x={24}

@@ -2,11 +2,11 @@
 title: "Announcing LaraUtilX: Elevate Your Laravel Development Experience"
 slug: announcing-larautilx-elevate-your-laravel-development-experience
 date: "2024-01-28"
-excerpt: "I am thrilled to share the exciting news of the release of my latest Laravel package — LaraUtilX ! As a developer passionate about simplifying workflows…"
+excerpt: "I am thrilled to share the exciting news of the release of my latest Laravel package, LaraUtilX ! As a developer passionate about simplifying workflows…"
 cover: "https://cdn-images-1.medium.com/max/800/1*Ipa9XleujfwHhWHB7OMF-w.png"
 ---
 
-I am thrilled to share the exciting news of the release of my latest Laravel package — [LaraUtilX](https://github.com/omarchouman/lara-util-x)! As a developer passionate about simplifying workflows and enhancing Laravel projects, I embarked on creating a comprehensive toolkit designed to empower fellow developers.
+I am thrilled to share the exciting news of the release of my latest Laravel package, [LaraUtilX](https://github.com/omarchouman/lara-util-x)! As a developer passionate about simplifying workflows and enhancing Laravel projects, I embarked on creating a comprehensive toolkit designed to empower fellow developers.
 
 ![](https://cdn-images-1.medium.com/max/800/1*Ipa9XleujfwHhWHB7OMF-w.png)
 
@@ -54,4 +54,4 @@ As a developer, your feedback is invaluable. I invite you to try [LaraUtilX](htt
 
 Thank you for being part of this journey. I’m excited to see how [LaraUtilX](https://github.com/omarchouman/lara-util-x) can elevate your Laravel development experience!
 
-As Always — Keep Hustling 🔥🔥
+As Always. Keep Hustling 🔥🔥

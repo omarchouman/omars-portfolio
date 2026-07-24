@@ -13,7 +13,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const pageNumber = Number(page) || 1;
   return {
     title: pageNumber > 1 ? `Blog – Page ${pageNumber}` : "Blog",
-    description: "Omar Chouman — Writing about engineering, systems, AWS, and career leverage.",
+    description: "Omar Chouman writes about engineering, systems, AWS, and career leverage.",
   };
 }
 

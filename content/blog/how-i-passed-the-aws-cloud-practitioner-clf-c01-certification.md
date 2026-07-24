@@ -38,7 +38,7 @@ Throughout my preparation for the exam (which was a period of 2 weeks of prepara
 
 Then, I found Stephane Maarek. Stephane is an awesome instructor because he is really knowledgeable about everything he is teaching and talking about.
 
-So, I bought his course Ultimate [AWS Certified Cloud Practitioner — 2023](https://www.udemy.com/course/aws-certified-cloud-practitioner-new/)
+So, I bought his course Ultimate [AWS Certified Cloud Practitioner - 2023](https://www.udemy.com/course/aws-certified-cloud-practitioner-new/)
 
 ![](https://cdn-images-1.medium.com/max/800/1*DlA1sAw9-DgyfvzSTpN-jQ.png)
 

@@ -11,7 +11,7 @@ import { getPersonJsonLd } from "@/lib/structured-data";
 export const metadata: Metadata = {
   metadataBase: new URL("https://omar-chouman.com"),
   title: {
-    default: "Omar Chouman — Software Engineer | Systems, Cloud & AI",
+    default: "Omar Chouman, Software Engineer | Systems, Cloud & AI",
     template: "%s | Omar Chouman",
   },
   description:

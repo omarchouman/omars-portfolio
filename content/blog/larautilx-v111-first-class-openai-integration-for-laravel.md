@@ -1,12 +1,12 @@
 ---
-title: "LaraUtilX v1.1.1 — First-Class OpenAI Integration for Laravel"
+title: "LaraUtilX v1.1.1: First-Class OpenAI Integration for Laravel"
 slug: larautilx-v111-first-class-openai-integration-for-laravel
 date: "2025-06-20"
-excerpt: "I’m excited to announce the release of LaraUtilX v1.1.1 — and it’s a game-changer."
+excerpt: "I’m excited to announce the release of LaraUtilX v1.1.1, and it’s a game-changer."
 cover: "https://cdn-images-1.medium.com/max/800/1*7e0bz_9JMPxrHTQOKCLAgg.png"
 ---
 
-I’m excited to announce the release of **LaraUtilX v1.1.1** — and it’s a game-changer.
+I’m excited to announce the release of **LaraUtilX v1.1.1**, and it’s a game-changer.
 
 This release introduces full support for OpenAI’s GPT models via the new `OpenAIProvider`, making it effortless to bring AI features into your Laravel applications.
 
@@ -24,7 +24,7 @@ The highlight of this version is the **OpenAIProvider**, which allows you to gen
 *   **Full OpenAI Support**: Use models like `gpt-3.5-turbo` and `gpt-4` with all major parameters (`temperature`, `stop sequences`, `max tokens`, etc.).
 *   **Robust Error Handling**: Built-in retries and graceful error responses.
 *   **Structured Output**: Clean, parsed results for easy handling in your app.
-*   **Seamless Laravel Integration**: Registered via Laravel’s service container — no extra setup needed.
+*   **Seamless Laravel Integration**: Registered via Laravel’s service container, no extra setup needed.
 
 * * *
 
@@ -36,7 +36,7 @@ Here’s what it looks like in practice:
 use omarchouman\LaraUtilX\LLMProviders\Contracts\LLMProviderInterface;class MyController extends Controller{    public function ask(LLMProviderInterface $llm)    {        $response = $llm->generateResponse('gpt-3.5-turbo', [            ['role' => 'user', 'content' => 'What is Laravel?']        ]);        return $response->getContent();    }}
 ```
 
-That’s it. Your Laravel app is now AI-enabled — no boilerplate, no hassle.
+That’s it. Your Laravel app is now AI-enabled, no boilerplate, no hassle.
 
 * * *
 
@@ -62,7 +62,7 @@ LaraUtilX v1.1.1 gives you the tools to do it smarter and faster.
 
 **LaraUtilX** is a utility-first Laravel package created to boost productivity by solving common development problems with simple, well-designed helpers, services, and integrations.
 
-From working with large language models to simplifying complex logic — it’s a toolkit built for real-world Laravel projects.
+From working with large language models to simplifying complex logic, it’s a toolkit built for real-world Laravel projects.
 
 * * *
 
