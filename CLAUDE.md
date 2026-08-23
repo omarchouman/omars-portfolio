@@ -39,6 +39,15 @@ Blog posts are **Markdown files on disk** at `content/blog/`, committed to the r
 
 Frontmatter schema: `title`, `slug`, `date` (YYYY-MM-DD), `excerpt`.
 
+### Skills
+
+Agent skills live at `content/skills/<slug>/`, one folder per skill, committed to the repo.
+
+- `SKILL.md` — required, kept byte-identical to the skill as it actually runs (its frontmatter is the Claude skill frontmatter: `name`, `description`)
+- `meta.json` — optional site-facing overrides: `title`, `category`, `description`. Falls back to the `SKILL.md` frontmatter when absent, so adding a skill can be a single file drop.
+
+`lib/skills.ts` reads them (`getAllSkills`, `getSkillBySlug`, `getSkillPackage`). `app/resources/skills/[slug]/download/route.ts` zips the folder into `<slug>.skill` via `jszip`; every file in the folder except `meta.json` is packaged, nested under `<slug>/`. The route is prerendered at build time, so the archive is served as a static asset.
+
 ### Contact Form
 
 `components/ContactForm.tsx` posts to `app/api/contact/route.ts`, which sends email via Resend (`no-reply@omarchouman.com` → `omar.chouman0@gmail.com`, with `replyTo` set to the submitter's address). Includes a hidden honeypot field (`company`) for basic spam filtering.

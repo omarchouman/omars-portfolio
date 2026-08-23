@@ -29,7 +29,13 @@ const navLinks: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
-  { label: "Resources", children: [{ href: "/resources/power-prompts", label: "Power Prompts" }] },
+  {
+    label: "Resources",
+    children: [
+      { href: "/resources/power-prompts", label: "Power Prompts" },
+      { href: "/resources/skills", label: "Skills" },
+    ],
+  },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];

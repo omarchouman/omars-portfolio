@@ -71,6 +71,21 @@ export function MarkdownRenderer({ content, headings = [] }: Props) {
             {children}
           </blockquote>
         ),
+        table: ({ children }) => (
+          <div className="mb-4 overflow-x-auto rounded-lg border border-[var(--border)]">
+            <table className="w-full border-collapse text-left text-sm">{children}</table>
+          </div>
+        ),
+        th: ({ children }) => (
+          <th className="border-b border-[var(--border)] px-4 py-2.5 font-semibold text-[var(--foreground)]">
+            {children}
+          </th>
+        ),
+        td: ({ children }) => (
+          <td className="border-b border-[var(--border)] px-4 py-2.5 align-top text-[var(--muted-foreground)] last:border-b-0">
+            {children}
+          </td>
+        ),
       }}
     >
       {content}
